@@ -1,0 +1,25 @@
+/* src/components/Grand-Carousel/style.module.css */
+.grandCarousel {
+    width: 80%;
+    margin: auto;
+  }
+  
+  .carouselSlide {
+    position: relative;
+  }
+  
+  .carouselImage {
+    width: 100%;
+    height: auto;
+  }
+  
+  .carouselCaption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
