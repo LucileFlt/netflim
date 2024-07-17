@@ -1,5 +1,3 @@
-/* src/components/Grand-Carousel.module.css */
-
 /* Styles pour le conteneur principal du carousel */
 .carousel {
   position: relative; /* Position relative pour gérer le positionnement des éléments enfants */
@@ -10,14 +8,12 @@
 /* Styles pour le conteneur interne des éléments du carousel */
 .carouselInner {
   display: flex; /* Utilisation de flexbox pour disposer les éléments en ligne */
-  overflow-x: auto; /* Défilement horizontal automatique si les éléments dépassent la largeur */
-  scroll-snap-type: x mandatory; /* Définit le type de défilement et le comportement de l'alignement */
+  transition: transform 0.5s ease; /* Animation douce pour le défilement */
 }
 
 /* Styles pour chaque élément individuel du carousel */
 .carouselItem {
-  flex: 0 0 100%; /* Chaque élément occupe 80% de la largeur disponible */
-  margin: 20px 10px; /* Marge de 0 sur le dessus et le bas, 10px à gauche et à droite */
+  min-width: 100%; /* Chaque élément occupe 100% de la largeur disponible */
   position: relative; /* Position relative pour gérer le positionnement des éléments enfants */
   scroll-snap-align: start; /* Alignement sur le début de la zone de défilement */
 }
@@ -45,6 +41,27 @@
   margin: 0; /* Aucune marge autour du titre */
 }
 
-/* Styles pour les flèches de navigation et les indicateurs peuvent être ajoutés ici */
+/* Styles pour les boutons de navigation */
+.prevButton, .nextButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.prevButton {
+  left: 10px;
+}
+
+.nextButton {
+  right: 10px;
+}
+
 
 
