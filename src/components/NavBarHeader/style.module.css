@@ -1,0 +1,16 @@
+.navbarheader {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navList {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navLink {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }

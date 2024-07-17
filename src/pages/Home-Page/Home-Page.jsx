@@ -5,12 +5,14 @@ import styles from './style.module.css'; // Assurez-vous d'importer correctement
 
 function App() {
   return (
+
     <div className={styles.homePage}> {/* Utilisation de la classe CSS du module */}
       <main>
         <h2>Dernières Sorties</h2>
         <GrandCarousel />
         <PetitCarousel />
         {/* Autres composants ou sections de votre application */}
+
       </main>
     </div>
   );
