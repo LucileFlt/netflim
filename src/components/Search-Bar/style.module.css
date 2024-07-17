@@ -1,0 +1,17 @@
+.searchBar {
+    display: flex;
+    align-items: center;
+  }
+  
+.searchInput {
+    padding: 5px;
+    margin-right: 5px;
+  }
+
+.searchButton {
+    padding: 5px 10px;
+    background-color: #555;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }

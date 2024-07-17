@@ -5,9 +5,10 @@ import MovieList from '../../components/MovieList/MovieList';
 
 const HomePage = () => {
   return (
-    <div>
-      <h1>Bienvenue sur la Page d'Accueil</h1>
-      <MovieList />
+    <div className="home-page">
+      <main>
+        <MovieList />
+      </main>
     </div>
   );
 };
