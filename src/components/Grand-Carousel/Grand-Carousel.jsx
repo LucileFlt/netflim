@@ -1,55 +1,63 @@
-// src/components/Grand-Carousel/GrandCarousel.jsx
-import React, { useEffect, useState } from 'react';
-import Slider from 'react-slick';
-import axios from 'axios';
-import styles from './style.module.css'; // Import du CSS module
+import React, { useState, useEffect } from 'react';
+import styles from '../Grand-Carousel/style.module.css'; // Importer les styles depuis Grand-Carousel.module.css
+import { getLatestMovies } from '../../API/note-api';
+
+
+// Importing custom arrow assets
+import prevArrow from '../../assets/right-chevron_dore.png';
+import nextArrow from '../../assets/left-chevron_dore.png';
+
 
 const GrandCarousel = () => {
   const [movies, setMovies] = useState([]);
-  const apiKey = '2f05454c51016e523956f153c3115390';
-  const baseUrl = 'https://api.themoviedb.org/3';
-  const fetchUrl = `${baseUrl}/movie/popular?api_key=${apiKey}&language=fr-FR`;
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get(fetchUrl);
-        setMovies(response.data.results);
+        const latestMovies = await getLatestMovies();
+        setMovies(latestMovies);
       } catch (error) {
-        console.error('Error fetching data from TMDB', error);
+        console.error('Error fetching latest movies:', error);
       }
     };
-    fetchMovies();
-  }, [fetchUrl]);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
+    fetchMovies();
+  }, []);
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? movies.length - 1 : prevIndex - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === movies.length - 1 ? 0 : prevIndex + 1));
   };
 
   return (
-    <div className={styles.grandCarousel}>
-      <Slider {...settings}>
-        {movies.map(movie => (
-          <div key={movie.id} className={styles.carouselSlide}>
-            <img 
-              src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} 
-              alt={movie.title} 
+    <div className={styles.carousel}>
+      <button className={styles.prevButton} onClick={handlePrev}><img src={nextArrow} alt="Next" />
+      </button>
+      <div className={styles.carouselInner} style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+        {movies.map((movie) => (
+          <div key={movie.id} className={styles.carouselItem}>
+            <img
+              src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
+              alt={movie.title}
               className={styles.carouselImage}
             />
             <div className={styles.carouselCaption}>
-              <h3>{movie.title}</h3>
+              <h5 className={styles.carouselTitle}>{movie.title}</h5>
             </div>
           </div>
         ))}
-      </Slider>
+      </div>
+      <button className={styles.nextButton} onClick={handleNext}>  <img src={prevArrow} alt="Previous" />
+      </button>
     </div>
   );
 };
 
 export default GrandCarousel;
+
+
+

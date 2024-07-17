@@ -1,16 +1,26 @@
-// src/pages/HomePage.jsx
-
 import React from 'react';
-import MovieList from '../../components/MovieList/MovieList';
+import GrandCarousel from '../../components/Grand-Carousel/Grand-Carousel';
+import PetitCarousel from '../../components/Petit-Carousel/Petit-Carousel';
+import styles from './style.module.css'; // Assurez-vous d'importer correctement le fichier CSS module
 
-const HomePage = () => {
+function App() {
   return (
-    <div className="home-page">
+
+    <div className={styles.homePage}> {/* Utilisation de la classe CSS du module */}
       <main>
-        <MovieList />
+        <h2>Dernières Sorties</h2>
+        <GrandCarousel />
+        <PetitCarousel />
+        {/* Autres composants ou sections de votre application */}
+
       </main>
     </div>
   );
-};
+}
 
-export default HomePage;
+
+
+
+export default App;
+
+
