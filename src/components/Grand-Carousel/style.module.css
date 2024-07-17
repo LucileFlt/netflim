@@ -1,25 +1,50 @@
-/* src/components/Grand-Carousel/style.module.css */
-.grandCarousel {
-    width: 80%;
-    margin: auto;
-  }
-  
-  .carouselSlide {
-    position: relative;
-  }
-  
-  .carouselImage {
-    width: 100%;
-    height: auto;
-  }
-  
-  .carouselCaption {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: white;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
+/* src/components/Grand-Carousel.module.css */
+
+/* Styles pour le conteneur principal du carousel */
+.carousel {
+  position: relative; /* Position relative pour gérer le positionnement des éléments enfants */
+  width: 100%; /* Le carousel occupe 100% de la largeur de son conteneur parent */
+  overflow: hidden; /* Masque tout contenu qui dépasse les dimensions du carousel */
+}
+
+/* Styles pour le conteneur interne des éléments du carousel */
+.carouselInner {
+  display: flex; /* Utilisation de flexbox pour disposer les éléments en ligne */
+  overflow-x: auto; /* Défilement horizontal automatique si les éléments dépassent la largeur */
+  scroll-snap-type: x mandatory; /* Définit le type de défilement et le comportement de l'alignement */
+}
+
+/* Styles pour chaque élément individuel du carousel */
+.carouselItem {
+  flex: 0 0 100%; /* Chaque élément occupe 80% de la largeur disponible */
+  margin: 20px 10px; /* Marge de 0 sur le dessus et le bas, 10px à gauche et à droite */
+  position: relative; /* Position relative pour gérer le positionnement des éléments enfants */
+  scroll-snap-align: start; /* Alignement sur le début de la zone de défilement */
+}
+
+/* Styles pour l'image à l'intérieur de chaque élément du carousel */
+.carouselImage {
+  width: 100%; /* L'image occupe 100% de la largeur de son conteneur */
+  height: auto; /* Hauteur ajustée automatiquement pour conserver les proportions */
+  object-fit: cover; /* Redimensionne et rogne l'image pour remplir complètement son conteneur */
+}
+
+/* Styles pour la légende ou le texte superposé à chaque élément du carousel */
+.carouselCaption {
+  position: absolute; /* Position absolue par rapport au premier parent positionné */
+  bottom: 0; /* Alignement en bas du conteneur */
+  left: 0; /* Alignement à gauche du conteneur */
+  right: 0; /* Alignement à droite du conteneur */
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent noir */
+  color: white; /* Texte en blanc */
+  padding: 10px; /* Espacement intérieur de 10px autour du contenu */
+}
+
+/* Styles pour le titre à l'intérieur de la légende */
+.carouselTitle {
+  margin: 0; /* Aucune marge autour du titre */
+}
+
+/* Styles pour les flèches de navigation et les indicateurs peuvent être ajoutés ici */
+
+

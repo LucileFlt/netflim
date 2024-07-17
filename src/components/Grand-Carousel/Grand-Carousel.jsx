@@ -1,55 +1,45 @@
-// src/components/Grand-Carousel/GrandCarousel.jsx
-import React, { useEffect, useState } from 'react';
-import Slider from 'react-slick';
-import axios from 'axios';
-import styles from './style.module.css'; // Import du CSS module
+// src/components/Grand-Carousel.jsx
+
+import React, { useState, useEffect } from 'react';
+import styles from '../Grand-Carousel/style.module.css'; // Importer les styles depuis Grand-Carousel.module.css
+import { getLatestMovies } from '../../API/note-api';
 
 const GrandCarousel = () => {
   const [movies, setMovies] = useState([]);
-  const apiKey = '2f05454c51016e523956f153c3115390';
-  const baseUrl = 'https://api.themoviedb.org/3';
-  const fetchUrl = `${baseUrl}/movie/popular?api_key=${apiKey}&language=fr-FR`;
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get(fetchUrl);
-        setMovies(response.data.results);
+        const latestMovies = await getLatestMovies();
+        setMovies(latestMovies);
       } catch (error) {
-        console.error('Error fetching data from TMDB', error);
+        console.error('Error fetching latest movies:', error);
       }
     };
-    fetchMovies();
-  }, [fetchUrl]);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-  };
+    fetchMovies();
+  }, []);
 
   return (
-    <div className={styles.grandCarousel}>
-      <Slider {...settings}>
-        {movies.map(movie => (
-          <div key={movie.id} className={styles.carouselSlide}>
-            <img 
-              src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} 
-              alt={movie.title} 
+    <div className={styles.carousel}>
+      <div className={styles.carouselInner}>
+        {movies.map((movie) => (
+          <div key={movie.id} className={styles.carouselItem}>
+            <img
+              src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+              alt={movie.title}
               className={styles.carouselImage}
             />
             <div className={styles.carouselCaption}>
-              <h3>{movie.title}</h3>
+              <h5 className={styles.carouselTitle}>{movie.title}</h5>
             </div>
           </div>
         ))}
-      </Slider>
+      </div>
     </div>
   );
 };
 
 export default GrandCarousel;
+
+
