@@ -2,12 +2,15 @@
 
 import React from 'react';
 import MovieList from '../../components/MovieList/MovieList';
+import Header from '../../components/Header/Header';
 
 const HomePage = () => {
   return (
-    <div>
-      <h1>Bienvenue sur la Page d'Accueil</h1>
-      <MovieList />
+    <div className="home-page">
+      <Header/>
+      <main>
+        <MovieList />
+      </main>
     </div>
   );
 };
