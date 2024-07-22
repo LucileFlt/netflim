@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from './pages/Home-Page/Home-Page';
 import AccountPage from './pages/Account-Page/Account';
 import MovieDetailPage from './pages/Movie-Detail-page/Movie-Detail-Page';
-import Watchlist from './pages/Watchlist/Watchlist';
+import Watchlist from './pages/Watchlist-Page/Watchlist';
 import './style.module.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
