@@ -1,26 +1,17 @@
 // src/App.jsx
-import './style.module.css';
+import { Outlet } from "react-router-dom";
+import Header from "./components/Header/Header";
 import React from 'react';
-import HomePage from './pages/Home-Page/Home-Page';
-import AccountPage from './pages/Account-Page/Account';
-import MovieDetailPage from './pages/Movie-Detail-page/Movie-Detail-Page';
-import Header from './components/Header/Header';
-import { Routes, Route } from 'react-router-dom';
+import style from "./style.module.css";
 
-const App = () => {
-  return (
-    <div className="App">
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/" element={<AccountPage/>} />
-        <Route path="/" element={<MovieDetailPage/>} />
-      </Routes>
+export function App() {
 
+    return <div className="container-fluide">
+    <Header />
+    <div className={style.outlet_container}>
+      <Outlet />
     </div>
-  );
-}
+    </div>
+};
 
 export default App;
-
-
