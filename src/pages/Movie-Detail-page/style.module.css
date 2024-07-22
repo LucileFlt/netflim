@@ -1,6 +1,6 @@
 /* src/pages/Movie-Detail-page/style.module.css */
-@import url('https://fonts.googleapis.com/css2?family=Rochester&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Rochester&family=Montserrat:wght@400;700&display=swap');
 
 .movieDetailPage {
   font-family: 'Montserrat', sans-serif;
@@ -9,70 +9,77 @@
   align-items: center;
   flex-direction: column;
   padding: 20px;
+  background: linear-gradient(180deg, #0f1c3f 0%, #1c2d6b 100%);
+  color: #fff;
+  min-height: 100vh;
 }
 
 .movieContainer {
   max-width: 1200px;
   width: 80%;
-  background-color: #002f68; /* Couleur de fond inspirée de Netflix */
-  border-radius: 5px;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   display: flex;
-  flex-direction: row; /* Afficher les blocs en ligne */
-  gap: 20px; /* Espace entre les blocs */
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
 }
 
 .hero {
-  flex: 1; /* Laisser l'image prendre tout l'espace disponible */
+  width: 100%;
+  position: relative;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .heroImage {
-  border-radius: 2px;
   width: 100%;
   height: auto;
-  object-fit: cover; /* Pour garder l'image proportionnelle et couvrir toute la zone */
+  max-height: 60vh;
+  object-fit: cover;
   transition: transform 0.3s ease-in-out;
 }
 
 .heroImage:hover {
-  transform: scale(1.05); /* Effet de zoom léger au survol */
+  transform: scale(1.05);
 }
 
 .movieDetails {
-  flex: 2; /* Laisser les détails prendre plus d'espace */
+  width: 100%;
   padding: 35px;
-  color: #fff; /* Couleur du texte pour les détails du film */
+  background-color: #1c2d6b;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .movieTitle {
-  font-family: 'Rochester', cursive; /* Appliquer la police Rochester */
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-family: 'Rochester', cursive;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-.movieDirector {
+.movieDirector, .movieInfo, .movieOverview {
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
 
-.movieInfo {
-  font-size: 1rem;
-  margin-bottom: 5px;
-}
-
 .movieOverview {
-  font-size: 1rem;
-  color: #aaa; /* Couleur du texte plus neutre pour le synopsis */
+  color: #aaa;
 }
 
-.loading {
+.loading, .error {
+  font-size: 1.5rem;
   color: #fff;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .error {
-  color: #ff0000; /* Rouge pour les messages d'erreur */
+  color: #ff0000;
 }
