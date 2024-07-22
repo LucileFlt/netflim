@@ -19,6 +19,6 @@ const Footer = () => {
       <p>© Netflim, 2024</p>
     </footer>
   );
-};
+}
 
 export default Footer;
