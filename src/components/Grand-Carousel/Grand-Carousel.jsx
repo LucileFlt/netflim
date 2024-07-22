@@ -1,15 +1,11 @@
-<<<<<<< Updated upstream
-=======
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../Grand-Carousel/style.module.css'; // Importer les styles depuis Grand-Carousel.module.css
 import { getLatestMovies } from '../../API/note-api';
 
-
 // Importing custom arrow assets
 import prevArrow from '../../assets/right-chevron_dore.png';
 import nextArrow from '../../assets/left-chevron_dore.png';
-
 
 const GrandCarousel = () => {
   const [movies, setMovies] = useState([]);
@@ -38,7 +34,9 @@ const GrandCarousel = () => {
 
   return (
     <div className={styles.carousel}>
-      <button className={styles.prevButton} onClick={handlePrev}><img src={nextArrow} alt="Next" /></button>
+      <button className={styles.prevButton} onClick={handlePrev}>
+        <img src={nextArrow} alt="Next" />
+      </button>
       <div className={styles.carouselInner} style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
         {movies.map((movie) => (
           <Link key={movie.id} to={`/movie-detail/${movie.id}`} className={styles.carouselItem}>
@@ -53,13 +51,11 @@ const GrandCarousel = () => {
           </Link>
         ))}
       </div>
-      <button className={styles.nextButton} onClick={handleNext}><img src={prevArrow} alt="Previous" /></button>
+      <button className={styles.nextButton} onClick={handleNext}>
+        <img src={prevArrow} alt="Previous" />
+      </button>
     </div>
   );
 };
 
 export default GrandCarousel;
-
-
-
->>>>>>> Stashed changes
