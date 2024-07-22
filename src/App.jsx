@@ -12,15 +12,12 @@ const App = () => {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/" element={<AccountPage/>} />
-        <Route path="/" element={<MovieDetailPage/>} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/account" element={<AccountPage />} />
+        <Route path="/movie-detail/:id" element={<MovieDetailPage />} /> {/* Assurez-vous que le chemin est correct */}
       </Routes>
-
     </div>
   );
 }
 
 export default App;
-
-

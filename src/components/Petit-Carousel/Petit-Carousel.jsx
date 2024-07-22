@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getLatestMovies } from '../../API/note-api'; // Assurez-vous d'utiliser la bonne fonction pour obtenir les derniers films
+import { Link } from 'react-router-dom'; // Importer Link depuis react-router-dom
 import styles from './style.module.css';
 
 // Importing custom arrow assets
@@ -26,6 +27,7 @@ const PetitCarousel = () => {
     try {
       const latestMovies = await getLatestMovies();
       setMovies(latestMovies);
+      
     } catch (error) {
       console.error('Error fetching movies:', error);
     }
@@ -91,7 +93,7 @@ const PetitCarousel = () => {
                 <h3>{movie.title}</h3>
                 <p>{truncateText(movie.overview, 200)}</p>
                 <p>Note: {movie.vote_average}</p>
-                <a href={`/movies/${movie.id}`} className={styles.detailsLink}>
+                <a href={`/movie-detail/${movie.id}`} className={styles.detailsLink}>
                   Voir les détails
                 </a>
                 <div className={styles.buttonContainer}>
@@ -120,13 +122,6 @@ const PetitCarousel = () => {
   );
 };
 
+
 export default PetitCarousel;
-
-
-
-
-
-
-
-
 

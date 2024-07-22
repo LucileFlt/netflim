@@ -1,0 +1,85 @@
+/* src/pages/Movie-Detail-page/style.module.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Rochester&family=Montserrat:wght@400;700&display=swap');
+
+.movieDetailPage {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background: linear-gradient(180deg, #0f1c3f 0%, #1c2d6b 100%);
+  color: #fff;
+  min-height: 100vh;
+}
+
+.movieContainer {
+  max-width: 1200px;
+  width: 80%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.hero {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.heroImage:hover {
+  transform: scale(1.05);
+}
+
+.movieDetails {
+  width: 100%;
+  padding: 35px;
+  background-color: #1c2d6b;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.movieTitle {
+  font-family: 'Rochester', cursive;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.movieDirector, .movieInfo, .movieOverview {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.movieOverview {
+  color: #aaa;
+}
+
+.loading, .error {
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.error {
+  color: #ff0000;
+}
