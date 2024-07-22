@@ -1,0 +1,64 @@
+/* src/pages/Movie-Detail-page/style.module.css */
+
+.movieDetailPage {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .movieContainer {
+    max-width: 1200px;
+    width: 80%;
+    background-color: #141414; /* Couleur de fond inspirée de Netflix */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .hero {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .heroImage {
+    width: 100%;
+    max-height: 60vh; /* Hauteur maximale de 60% de la hauteur de la vue */
+    object-fit: cover; /* Pour garder l'image proportionnelle et couvrir toute la zone */
+  }
+
+  .movieDetails {
+    padding: 20px;
+    color: #fff; /* Couleur du texte pour les détails du film */
+  }
+
+  .movieTitle {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .movieDirector {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .movieInfo {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+
+  .movieOverview {
+    font-size: 1rem;
+    color: #aaa; /* Couleur du texte plus neutre pour le synopsis */
+  }
+
+  .loading {
+    color: #fff;
+  }
+
+  .error {
+    color: #ff0000; /* Rouge pour les messages d'erreur */
+  }
