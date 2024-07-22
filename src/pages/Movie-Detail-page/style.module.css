@@ -1,64 +1,78 @@
 /* src/pages/Movie-Detail-page/style.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Rochester&display=swap');
+
 
 .movieDetailPage {
-    font-family: 'Montserrat', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-  }
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
 
-  .movieContainer {
-    max-width: 1200px;
-    width: 80%;
-    background-color: #141414; /* Couleur de fond inspirée de Netflix */
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  }
+.movieContainer {
+  max-width: 1200px;
+  width: 80%;
+  background-color: #002f68; /* Couleur de fond inspirée de Netflix */
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row; /* Afficher les blocs en ligne */
+  gap: 20px; /* Espace entre les blocs */
+}
 
-  .hero {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-  }
+.hero {
+  flex: 1; /* Laisser l'image prendre tout l'espace disponible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .heroImage {
-    width: 100%;
-    max-height: 60vh; /* Hauteur maximale de 60% de la hauteur de la vue */
-    object-fit: cover; /* Pour garder l'image proportionnelle et couvrir toute la zone */
-  }
+.heroImage {
+  border-radius: 2px;
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Pour garder l'image proportionnelle et couvrir toute la zone */
+  transition: transform 0.3s ease-in-out;
+}
 
-  .movieDetails {
-    padding: 20px;
-    color: #fff; /* Couleur du texte pour les détails du film */
-  }
+.heroImage:hover {
+  transform: scale(1.05); /* Effet de zoom léger au survol */
+}
 
-  .movieTitle {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
+.movieDetails {
+  flex: 2; /* Laisser les détails prendre plus d'espace */
+  padding: 35px;
+  color: #fff; /* Couleur du texte pour les détails du film */
+}
 
-  .movieDirector {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-  }
+.movieTitle {
+  font-family: 'Rochester', cursive; /* Appliquer la police Rochester */
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
 
-  .movieInfo {
-    font-size: 1rem;
-    margin-bottom: 5px;
-  }
+.movieDirector {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
 
-  .movieOverview {
-    font-size: 1rem;
-    color: #aaa; /* Couleur du texte plus neutre pour le synopsis */
-  }
+.movieInfo {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
 
-  .loading {
-    color: #fff;
-  }
+.movieOverview {
+  font-size: 1rem;
+  color: #aaa; /* Couleur du texte plus neutre pour le synopsis */
+}
 
-  .error {
-    color: #ff0000; /* Rouge pour les messages d'erreur */
-  }
+.loading {
+  color: #fff;
+}
+
+.error {
+  color: #ff0000; /* Rouge pour les messages d'erreur */
+}

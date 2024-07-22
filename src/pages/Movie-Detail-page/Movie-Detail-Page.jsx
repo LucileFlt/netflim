@@ -1,40 +1,48 @@
 // src/pages/Movie-Detail-page/MovieDetailPage.jsx
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'; // Importer useParams pour récupérer les paramètres d'URL
+import { useParams } from 'react-router-dom';
 import MovieInfo from '../../components/MovieInfo/MovieInfo';
-import { getMovieDetails } from '../../API/note-api'; // Importer la fonction pour récupérer les détails du film
-import styles from './style.module.css'; // Importer les styles CSS module
+import { getMovieDetails } from '../../API/note-api';
+import styles from './style.module.css';
 
 const MovieDetailPage = () => {
-  const { id } = useParams(); // Récupérer l'ID du film depuis les paramètres d'URL
-  const [selectedMovie, setSelectedMovie] = useState(null); // État pour stocker les détails du film
-  const [loading, setLoading] = useState(true); // État pour gérer le chargement
-  const [error, setError] = useState(null); // État pour gérer les erreurs
+  const { id } = useParams();
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const movieDetails = await getMovieDetails(id); // Appel à votre fonction API pour récupérer les détails du film
-        setSelectedMovie(movieDetails); // Mettre à jour l'état avec les détails du film
+        const movieDetails = await getMovieDetails(id);
+        setSelectedMovie(movieDetails);
       } catch (error) {
-        setError(error.message); // Gérer les erreurs en cas de problème lors de la récupération des détails du film
+        setError(error.message);
       } finally {
-        setLoading(false); // Mettre fin au chargement une fois que l'opération est terminée
+        setLoading(false);
       }
     };
 
-    fetchMovieDetails(); // Appeler la fonction pour récupérer les détails du film lors du montage du composant
-  }, [id]); // Déclencher l'effet à chaque changement de l'ID du film
+    fetchMovieDetails();
+  }, [id]);
 
-  if (loading) return <div className={styles.loading}>Chargement...</div>; // Afficher un message de chargement si les données sont en cours de récupération
-  if (error) return <div className={styles.error}>Erreur : {error}</div>; // Afficher un message d'erreur en cas de problème lors de la récupération des données
+  if (loading) return <div className={styles.loading}>Chargement...</div>;
+  if (error) return <div className={styles.error}>Erreur : {error}</div>;
 
   return (
-    <div className={styles.movieDetailPage}> {/* Utilisation de la classe CSS du module */}
-      <main>
-        {selectedMovie && <MovieInfo movie={selectedMovie} />} {/* Passer les détails du film au composant MovieInfo si disponibles */}
-        {/* Autres composants ou sections de votre application */}
-      </main>
+    <div className={styles.movieDetailPage}>
+      <div className={styles.movieContainer}>
+        <div className={styles.hero}>
+          {selectedMovie && (
+            <img
+              src={`https://image.tmdb.org/t/p/original${selectedMovie.poster_path}`}
+              alt={selectedMovie.title}
+              className={styles.heroImage}
+            />
+          )}
+        </div>
+        {selectedMovie && <MovieInfo movie={selectedMovie} />}
+      </div>
     </div>
   );
 };
