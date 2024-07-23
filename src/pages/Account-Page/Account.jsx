@@ -24,13 +24,13 @@ const AccountPage = () => {
       <h1>Paramètres du compte</h1>
       <div className={styles.formContainer}>
         <div className={styles.header}>
-          <h2>Profil</h2>
+          <h2>Mika</h2>
           <img src={profileImage} alt="Profile" className={styles.profileImage} />
         </div>
         <form onSubmit={handleSubmit} className={styles.form}>
           <input
             type="text"
-            placeholder="Pseudo"
+            placeholder="Mika"
             value={pseudo}
             onChange={handlePseudoChange}
             className={styles.input}
@@ -38,7 +38,7 @@ const AccountPage = () => {
           />
           <input
             type="email"
-            placeholder="Adresse mail"
+            placeholder="Mika.mike@gmail.com"
             value={email}
             onChange={handleEmailChange}
             className={styles.input}
@@ -46,7 +46,7 @@ const AccountPage = () => {
           />
           <input
             type="password"
-            placeholder="Modifier son mdp"
+            placeholder="*******"
             value={password}
             onChange={handlePasswordChange}
             className={styles.input}
