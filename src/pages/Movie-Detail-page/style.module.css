@@ -1,5 +1,3 @@
-/* src/pages/Movie-Detail-page/style.module.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Rochester&family=Montserrat:wght@400;700&display=swap');
 
 .movieDetailPage {
@@ -14,63 +12,54 @@
   min-height: 100vh;
 }
 
-.movieContainer {
+.movieContent {
   max-width: 1200px;
   width: 80%;
-  border-radius: 8px;
+  border-radius: 5px;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row; /* Aligne l'image et les détails côte à côte */
+  align-items: flex-start; /* Aligne les éléments en haut */
   gap: 20px;
   padding: 20px;
 }
 
-.hero {
-  width: 100%;
-  height: 60vh; /* Hauteur fixe pour l'image */
-  position: relative;
-  overflow: hidden;
+.moviePoster {
+  flex: 1; /* Prend 1 partie de l'espace disponible */
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
 }
 
-.heroImage {
+.moviePosterImage {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
-  object-position: top; /* Afficher le haut de l'image */
-  transition: transform 0.3s ease-in-out;
-}
-
-.heroImage:hover {
-  transform: scale(1.05);
+  border-radius: 5px;
 }
 
 .movieDetails {
+  flex: 2; /* Prend 2 parties de l'espace disponible */
   width: 100%;
-  padding: 35px;
-  background-color: #1c2d6b;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
 
 .movieTitle {
+  padding-bottom: 50px;
   font-family: 'Rochester', cursive;
   font-size: 3rem;
-  margin-bottom: 20px;
-  text-align: center;
+  margin: 25px;
 }
 
 .movieDirector, .movieInfo, .movieOverview {
-  font-size: 1 rem;
-  margin-bottom: 25px;
+  font-size: 1rem; /* Corrigé l'espace manquante */
+  margin: 25px;
 }
 
 .movieOverview {
   color: #aaa;
+  margin: 25px;
 }
 
 .loading, .error {
@@ -82,4 +71,20 @@
 
 .error {
   color: #ff0000;
+}
+
+/* Media Query pour cacher l'image heroImage lorsque l'écran est inférieur à 800px et ajuster la largeur de MovieDetails */
+@media (max-width: 800px) {
+  .moviePoster {
+    display: none;
+  }
+  
+  .movieDetails {
+    flex: 1; /* Prend toute la largeur disponible */
+  }
+
+  .movieContent {
+    flex-direction: column; /* Change la direction pour column sur petits écrans */
+    width: 100%;
+  }
 }

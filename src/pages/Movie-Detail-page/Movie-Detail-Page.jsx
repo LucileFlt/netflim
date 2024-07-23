@@ -1,4 +1,3 @@
-// src/pages/Movie-Detail-page/MovieDetailPage.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import MovieInfo from '../../components/MovieInfo/MovieInfo';
@@ -31,17 +30,21 @@ const MovieDetailPage = () => {
 
   return (
     <div className={styles.movieDetailPage}>
-      <div className={styles.movieContainer}>
-        <div className={styles.hero}>
+      <div className={styles.movieContent}>
+        <div className={styles.moviePoster}>
           {selectedMovie && (
             <img
               src={`https://image.tmdb.org/t/p/original${selectedMovie.poster_path}`}
               alt={selectedMovie.title}
-              className={styles.heroImage}
+              className={styles.moviePosterImage}
             />
           )}
         </div>
-        {selectedMovie && <MovieInfo movie={selectedMovie} />}
+        {selectedMovie && (
+          <div className={styles.movieDetails}>
+            <MovieInfo movie={selectedMovie} />
+          </div>
+        )}
       </div>
     </div>
   );
