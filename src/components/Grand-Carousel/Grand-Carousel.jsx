@@ -39,7 +39,7 @@ const GrandCarousel = () => {
       <button className={styles.prevButton} onClick={handlePrev}><img src={nextArrow} alt="Next" /></button>
       <div className={styles.carouselInner} style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
         {movies.map((movie) => (
-          <Link key={movie.id} to={`/movie-detail/${movie.id}`} className={styles.carouselItem}>
+          <Link key={movie.id} to={`/movie-detail-page/${movie.id}`} className={styles.carouselItem}>
             <img
               src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
               alt={movie.title}

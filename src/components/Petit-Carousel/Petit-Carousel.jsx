@@ -93,7 +93,7 @@ const PetitCarousel = () => {
                 <h3>{movie.title}</h3>
                 <p>{truncateText(movie.overview, 100)}</p>
                 <p>Note: {movie.vote_average}</p>
-                <a href={`/movie-detail/${movie.id}`} className={styles.detailsLink}>
+                <a href={`/movie-detail-page/${movie.id}`} className={styles.detailsLink}>
                   Voir les détails
                 </a>
                 <div className={styles.buttonContainer}>

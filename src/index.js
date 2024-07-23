@@ -17,9 +17,9 @@ root.render(
         <Routes>
           <Route path="/" element={<App />} >
               <Route path="/" element={<HomePage />} />
-              <Route path="/" element={<AccountPage />} />
-              <Route path="/" element={<MovieDetailPage />} />
-              <Route path="/" element={<Watchlist />} />
+              <Route path="/account-page" element={<AccountPage />} />
+              <Route path="/moviedetailpage/:id" element={<MovieDetailPage />} />
+              <Route path="/watchlist" element={<Watchlist />} />
           </Route>  
         </Routes>
       </BrowserRouter>
