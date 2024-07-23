@@ -24,7 +24,7 @@
   width: 55px;
   height: 75px;
   flex-shrink: 0; 
-  padding-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
 }
 
 p {
@@ -36,4 +36,5 @@ p {
   font-weight: 400;
   line-height: normal;
   letter-spacing: 1.6px;
+  margin: 0;
 }

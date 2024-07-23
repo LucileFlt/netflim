@@ -5,7 +5,7 @@ import UserAvatar from '../User-Avatar/User-Avatar';
 import Logo from '../../assets/logo popcorn.png';
 import styles from './style.module.css';
 
-const Header = ({ onSearch }) => {
+const Header = ({ onSearchResults }) => {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -13,7 +13,7 @@ const Header = ({ onSearch }) => {
         <p>Netflim</p>
       </div>
       <NavBarHeader />
-      <SearchBar onSearch={onSearch} />
+      <SearchBar onSearchResults={onSearchResults} /> {/* Passer la fonction onSearchResults */}
       <UserAvatar />
     </header>
   );
