@@ -1,4 +1,5 @@
-.App {
-  font-family: Montserrat;
-  background: linear-gradient(#081929, #1C568F);
+body{
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #0f1c3f 0%, #1c2d6b 100%);
 }

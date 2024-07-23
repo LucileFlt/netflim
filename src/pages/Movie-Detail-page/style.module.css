@@ -7,7 +7,6 @@
   align-items: center;
   flex-direction: column;
   padding: 20px;
-  background: linear-gradient(180deg, #0f1c3f 0%, #1c2d6b 100%);
   color: #fff;
   min-height: 100vh;
 }

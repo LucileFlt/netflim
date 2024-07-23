@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #1c2d6b;
+    color: #fff;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+  }
+  
+  .formGroup {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    font-size: 1rem;
+  }
+  
+  .input {
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .button {
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff0000;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #cc0000;
+  }
+  
