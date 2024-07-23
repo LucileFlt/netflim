@@ -1,18 +1,39 @@
+@font-face {
+  font-family: 'Moulpali';
+  src: url('../../assets/Moulpali/Moulpali-Regular.ttf');
+}
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 0px 20px;
     background-color: #DCB253;
     color: #FFFFFF;
   }
 
 .logo {
-  flex-direction: row;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  justify-content: space-around;
+  gap: 0.5rem
 }
 
-.logo img{
-  width: 75px;
-  height: 75px  
+.logo img {
+  width: 55px;
+  height: 75px;
+  flex-shrink: 0; 
+  padding-bottom: 1.5rem;
+}
+
+p {
+  color: #FFF;
+  text-align: center;
+  font-family: Moulpali;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.6px;
 }
