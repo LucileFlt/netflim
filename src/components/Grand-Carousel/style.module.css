@@ -24,6 +24,7 @@
   display: flex; /* Utilisation de flexbox pour centrer l'image */
   justify-content: center; /* Centrage horizontal */
   align-items: center; /* Centrage vertical */
+ 
 }
 
 /* Styles pour l'image à l'intérieur de chaque élément du carousel */
