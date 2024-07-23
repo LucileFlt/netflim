@@ -5,25 +5,20 @@
     padding: 8px 16px 8px 12px;
     align-items: center;
     gap: 12px;
-    flex-shrink: 0;
-    border-radius: 8px;
+    border-radius: 12px;
   }
   
 .searchInput {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  display: flex;
   flex: 1 0 0;
   overflow: hidden;
   color: #DCB253;
   text-overflow: ellipsis;
-
-  /* Presets/Body2 */
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
   }
 
 .searchButton {
@@ -32,4 +27,5 @@
     border: none;
     color: #fff;
     cursor: pointer;
+    border-radius: 3%;
   }

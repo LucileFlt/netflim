@@ -13,7 +13,7 @@ const Header = ({ onSearchResults }) => {
         <Link to="/">
           <img src={Logo} alt="Netflim Logo" className={styles.logoImage} />
         </Link>
-        <p>Netflim</p>
+        <p className={styles.pheader}>Netflim</p>
       </div>
       <NavBarHeader />
       <SearchBar onSearchResults={onSearchResults} /> {/* Passer la fonction onSearchResults */}
