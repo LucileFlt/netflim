@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getLatestMovies } from '../../API/note-api'; // Assurez-vous d'utiliser la bonne fonction pour obtenir les derniers films
-import { Link } from 'react-router-dom'; // Importer Link depuis react-router-dom
+import { getLatestMovies } from '../../API/note-api';
+import { Link } from 'react-router-dom';
 import styles from './style.module.css';
 
 // Importing custom arrow assets
@@ -20,16 +20,31 @@ const PetitCarousel = () => {
   const [watchlist, setWatchlist] = useState([]);
 
   useEffect(() => {
-    fetchLatestMovies(); // Modifiez cette ligne pour appeler la nouvelle fonction
+    fetchLatestMovies();
+    loadFavoritesFromLocalStorage();
+    loadWatchlistFromLocalStorage();
   }, []);
 
   const fetchLatestMovies = async () => {
     try {
       const latestMovies = await getLatestMovies();
       setMovies(latestMovies);
-      
     } catch (error) {
       console.error('Error fetching movies:', error);
+    }
+  };
+
+  const loadFavoritesFromLocalStorage = () => {
+    const storedFavorites = localStorage.getItem('favorites');
+    if (storedFavorites) {
+      setFavorites(JSON.parse(storedFavorites));
+    }
+  };
+
+  const loadWatchlistFromLocalStorage = () => {
+    const storedWatchlist = localStorage.getItem('watchlist');
+    if (storedWatchlist) {
+      setWatchlist(JSON.parse(storedWatchlist));
     }
   };
 
@@ -43,11 +58,14 @@ const PetitCarousel = () => {
 
   const handleLikeClick = (movie) => {
     setFavorites((prevFavorites) => {
+      let newFavorites;
       if (prevFavorites.includes(movie.id)) {
-        return prevFavorites.filter(id => id !== movie.id);
+        newFavorites = prevFavorites.filter(id => id !== movie.id);
       } else {
-        return [...prevFavorites, movie.id];
+        newFavorites = [...prevFavorites, movie.id];
       }
+      localStorage.setItem('favorites', JSON.stringify(newFavorites));
+      return newFavorites;
     });
   };
 
@@ -55,11 +73,14 @@ const PetitCarousel = () => {
 
   const handleWatchlistClick = (movie) => {
     setWatchlist((prevWatchlist) => {
+      let newWatchlist;
       if (prevWatchlist.includes(movie.id)) {
-        return prevWatchlist.filter(id => id !== movie.id);
+        newWatchlist = prevWatchlist.filter(id => id !== movie.id);
       } else {
-        return [...prevWatchlist, movie.id];
+        newWatchlist = [...prevWatchlist, movie.id];
       }
+      localStorage.setItem('watchlist', JSON.stringify(newWatchlist));
+      return newWatchlist;
     });
   };
 
@@ -93,9 +114,9 @@ const PetitCarousel = () => {
                 <h3>{movie.title}</h3>
                 <p>{truncateText(movie.overview, 80)}</p>
                 <p>Note: {movie.vote_average}</p>
-                <a href={`/movie-detail-page/${movie.id}`} className={styles.detailsLink}>
+                <Link to={`/movie-detail-page/${movie.id}`} className={styles.detailsLink}>
                   Voir les détails
-                </a>
+                </Link>
                 <div className={styles.buttonContainer}>
                   <button className={styles.likeButton} onClick={() => handleLikeClick(movie)}>
                     <img 
@@ -122,6 +143,6 @@ const PetitCarousel = () => {
   );
 };
 
-
 export default PetitCarousel;
+
 
