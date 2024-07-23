@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { getMovieDetails } from '../../API/note-api';
 import styles from './style.module.css';
 
-const Watchlist = () => {
-  const [watchlistMovies, setWatchlistMovies] = useState([]);
+const Favoris = () => {
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   useEffect(() => {
-    loadWatchlistMovies();
+    loadFavoriteMovies();
   }, []);
 
-  const loadWatchlistMovies = async () => {
-    const watchlistIds = JSON.parse(localStorage.getItem('watchlist')) || [];
-    const watchlistMoviesData = await Promise.all(watchlistIds.map(id => getMovieDetails(id)));
-    setWatchlistMovies(watchlistMoviesData);
+  const loadFavoriteMovies = async () => {
+    const favoriteIds = JSON.parse(localStorage.getItem('favorites')) || [];
+    const favoriteMoviesData = await Promise.all(favoriteIds.map(id => getMovieDetails(id)));
+    setFavoriteMovies(favoriteMoviesData);
   };
 
   const truncateText = (text, maxLength) => {
@@ -24,9 +24,9 @@ const Watchlist = () => {
 
   return (
     <div className={styles.pageContainer}>
-      <h2 className={styles.pageTitle}>Watchlist</h2>
+      <h2 className={styles.pageTitle}>Favoris</h2>
       <div className={styles.moviesGrid}>
-        {watchlistMovies.map(movie => (
+        {favoriteMovies.map(movie => (
           <div key={movie.id} className={styles.movieCard}>
             <img 
               src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} 
@@ -46,6 +46,4 @@ const Watchlist = () => {
   );
 };
 
-export default Watchlist;
-
-
+export default Favoris;
