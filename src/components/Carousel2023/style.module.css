@@ -9,6 +9,13 @@
     color: #fff;
     
   }
+
+  .carouselTitle {
+    font-size: 30px; /* Exemple de taille de police, à ajuster selon vos besoins */
+    color:#fff; /* Exemple de couleur, à ajuster selon vos besoins */
+    margin-left: 150px; /* Exemple de marge inférieure, à ajuster selon vos besoins */
+  }
+  
   
   .carouselWrapper {
     display: flex;

@@ -76,7 +76,7 @@ const PetitCarousel = () => {
 
   return (
     <div className={styles.carouselContainer}>
-      <h2>Derniers films mis en ligne</h2>
+      <h2 className={styles.carouselTitle}>Derniers films mis en ligne</h2>
       <div className={styles.carouselWrapper}>
         <button className={styles.prevButton} onClick={handlePrevClick}>
           <img src={prevArrow} alt="Previous" />
