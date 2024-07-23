@@ -10,6 +10,7 @@ const NavBarHeader = () => {
         <li className={styles.navItem}><Link to="/" className={styles.navLink}>Accueil</Link></li>
         <li className={styles.navItem}><Link to="/watchlist" className={styles.navLink}>À voir</Link></li>
         <li className={styles.navItem}><Link to="/favorites" className={styles.navLink}>Favoris</Link></li>
+        <li className={styles.navItem}><Link to="/acount" className={styles.navLink}>Compte</Link></li>
       </ul>
     </nav>
   );
