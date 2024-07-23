@@ -24,11 +24,12 @@
   display: flex; /* Utilisation de flexbox pour centrer l'image */
   justify-content: center; /* Centrage horizontal */
   align-items: center; /* Centrage vertical */
+ 
 }
 
 /* Styles pour l'image à l'intérieur de chaque élément du carousel */
 .carouselImage {
-  max-width: 65%; /* Limite la largeur à 80% du conteneur parent */
+  max-width: 60%; /* Limite la largeur à 80% du conteneur parent */
   height: auto; /* Hauteur ajustée automatiquement pour conserver les proportions */
   object-fit: contain; /* Contient l'image sans la rogner */
   border-radius: 15px;
