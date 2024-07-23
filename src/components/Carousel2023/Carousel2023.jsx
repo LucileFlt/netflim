@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getMovies2023 } from '../../API/note-api'; // Importer la fonction pour obtenir les films de 2023
+import { getMovies2023 } from '../../API/note-api';
 import styles from '../Carousel2023/style.module.css';
 
 // Importing custom arrow assets
@@ -15,12 +15,20 @@ import watchlistFilled from '../../assets/enregistrer_dore_full.png';
 const Carousel2023 = () => {
   const [movies, setMovies] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [favorites, setFavorites] = useState([]);
-  const [watchlist, setWatchlist] = useState([]);
+  const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
+  const [watchlist, setWatchlist] = useState(JSON.parse(localStorage.getItem('watchlist')) || []);
 
   useEffect(() => {
-    fetchMovies2023(); // Appel à la fonction pour récupérer les films de 2023
+    fetchMovies2023();
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
+
+  useEffect(() => {
+    localStorage.setItem('watchlist', JSON.stringify(watchlist));
+  }, [watchlist]);
 
   const fetchMovies2023 = async () => {
     try {
@@ -121,3 +129,4 @@ const Carousel2023 = () => {
 };
 
 export default Carousel2023;
+
