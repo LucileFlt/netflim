@@ -1,53 +1,58 @@
 import React, { useState } from 'react';
 import styles from './style.module.css';
+import profileImage from '../../assets/avatar.png'; // Assurez-vous d'avoir l'image de profil
 
 const AccountPage = () => {
+  const [pseudo, setPseudo] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
+  const handlePseudoChange = (event) => setPseudo(event.target.value);
+  const handleEmailChange = (event) => setEmail(event.target.value);
+  const handlePasswordChange = (event) => setPassword(event.target.value);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Ajoute ici la logique de connexion (appel API, validation, etc.)
+    console.log('Pseudo:', pseudo);
     console.log('Email:', email);
     console.log('Password:', password);
   };
 
   return (
     <div className={styles.container}>
-      <h1>Connexion</h1>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.formGroup}>
-          <label htmlFor="email">Adresse e-mail</label>
+      <h1>Paramètres du compte</h1>
+      <div className={styles.formContainer}>
+        <h2>Profil</h2>
+        <img src={profileImage} alt="Profile" className={styles.profileImage} />
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <input
+            type="text"
+            placeholder="Pseudo"
+            value={pseudo}
+            onChange={handlePseudoChange}
+            className={styles.input}
+            required
+          />
           <input
             type="email"
-            id="email"
+            placeholder="Adresse mail"
             value={email}
             onChange={handleEmailChange}
-            required
             className={styles.input}
+            required
           />
-        </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="password">Mot de passe</label>
           <input
             type="password"
-            id="password"
+            placeholder="Modifier son mdp"
             value={password}
             onChange={handlePasswordChange}
-            required
             className={styles.input}
+            required
           />
-        </div>
-        <button type="submit" className={styles.button}>Se connecter</button>
-      </form>
+          <button type="submit" className={styles.button}>Connexion</button>
+        </form>
+      </div>
     </div>
   );
 };
