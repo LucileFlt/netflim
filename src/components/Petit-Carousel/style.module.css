@@ -6,6 +6,7 @@
 .carouselContainer {
   text-align: left;
   font-family: 'Moulpali';
+  color: #fff;
   
 }
 
@@ -51,8 +52,20 @@
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 10;
   border-radius: 15px;
-  overflow-y: auto; /* If the content is too long */
-  font-size: 0.7em;
+  overflow-y: auto; /* Si le contenu est trop long */
+  font-size: 1em; /* Taille du texte */
+  line-height: 1; /* Hauteur de ligne */
+  letter-spacing: 0.01em; /* Espacement entre les lettres */
+}
+
+.movieDetailsCard h2 {
+  font-size: 1.5em; /* Taille du titre */
+  margin-bottom: 10px; /* Espace sous le titre */
+}
+
+.movieDetailsCard p {
+  font-size: 0.8em; /* Taille du texte */
+  margin-bottom: 10px; /* Espace sous chaque paragraphe */
 }
 
 .carouselItem:hover .movieDetailsCard {
