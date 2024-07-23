@@ -91,7 +91,7 @@ const PetitCarousel = () => {
               />
               <div className={styles.movieDetailsCard}>
                 <h3>{movie.title}</h3>
-                <p>{truncateText(movie.overview, 100)}</p>
+                <p>{truncateText(movie.overview, 80)}</p>
                 <p>Note: {movie.vote_average}</p>
                 <a href={`/movie-detail-page/${movie.id}`} className={styles.detailsLink}>
                   Voir les détails
