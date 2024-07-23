@@ -5,7 +5,7 @@
     flex-shrink: 0;
   }
   
-  .navList {
+.navList {
     list-style: none;
     display: flex;
     gap: 70px;
