@@ -8,7 +8,6 @@ function App() {
 
     <div className={styles.homePage}> {/* Utilisation de la classe CSS du module */}
       <main>
-        <h2>Dernières Sorties</h2>
         <GrandCarousel />
         <PetitCarousel />
         {/* Autres composants ou sections de votre application */}
