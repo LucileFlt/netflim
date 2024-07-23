@@ -74,7 +74,7 @@ const Carousel2023 = () => {
 
   return (
     <div className={styles.carouselContainer}>
-      <h2>Films de 2023</h2>
+      <h2 className={styles.carouselTitle}>Films de 2023</h2>
       <div className={styles.carouselWrapper}>
         <button className={styles.prevButton} onClick={handlePrevClick}>
           <img src={prevArrow} alt="Previous" />
