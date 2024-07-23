@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import NavBarHeader from '../NavBarHeader/NavBarHeader';
 import SearchBar from '../Search-Bar/Search-Bar';
 import UserAvatar from '../User-Avatar/User-Avatar';
@@ -9,7 +10,9 @@ const Header = ({ onSearchResults }) => {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <img src={Logo} alt="Netflim Logo" />
+        <Link to="/">
+          <img src={Logo} alt="Netflim Logo" className={styles.logoImage} />
+        </Link>
         <p>Netflim</p>
       </div>
       <NavBarHeader />
