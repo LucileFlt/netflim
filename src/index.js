@@ -7,6 +7,7 @@ import HomePage from './pages/Home-Page/Home-Page';
 import AccountPage from './pages/Account-Page/Account';
 import MovieDetailPage from './pages/Movie-Detail-page/Movie-Detail-Page';
 import Watchlist from './pages/Watchlist-Page/Watchlist';
+import Favoris from './pages/Favoris-Page/Favoris';
 import './style.module.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -20,6 +21,7 @@ root.render(
               <Route path="/account" element={<AccountPage />} />
               <Route path="/movie-detail-page/:id" element={<MovieDetailPage />} />
               <Route path="/watchlist" element={<Watchlist />} />
+              <Route path="/Favoris" element={<Favoris />} />
           </Route>  
         </Routes>
       </BrowserRouter>
