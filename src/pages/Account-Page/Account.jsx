@@ -23,8 +23,10 @@ const AccountPage = () => {
     <div className={styles.container}>
       <h1>Paramètres du compte</h1>
       <div className={styles.formContainer}>
-        <h2>Profil</h2>
-        <img src={profileImage} alt="Profile" className={styles.profileImage} />
+        <div className={styles.header}>
+          <h2>Profil</h2>
+          <img src={profileImage} alt="Profile" className={styles.profileImage} />
+        </div>
         <form onSubmit={handleSubmit} className={styles.form}>
           <input
             type="text"
@@ -50,7 +52,7 @@ const AccountPage = () => {
             className={styles.input}
             required
           />
-          <button type="submit" className={styles.button}>Connexion</button>
+          <button type="submit" className={styles.button}>Déconnexion</button>
         </form>
       </div>
     </div>
