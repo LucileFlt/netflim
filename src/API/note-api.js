@@ -75,6 +75,26 @@ export const getLatestScienceFictionMovies = async () => {
   }
 };
 
+// Fonction de recherche de films par nom
+export const searchMovies = async (query) => {
+  try {
+    // Envoie une requête à l'API TMDB pour rechercher des films avec le nom spécifié
+    const response = await fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}`);
+    if (!response.ok) {
+      // Lance une erreur si la requête échoue
+      throw new Error('Erreur lors de la recherche de films');
+    }
+    // Convertit la réponse en JSON
+    const data = await response.json();
+    // Renvoie les résultats de la recherche
+    return data.results;
+  } catch (error) {
+    // Affiche une erreur en cas d'échec
+    console.error(error);
+    return [];
+  }
+};
+
 // Fonction pour obtenir les films de 2023
 export const getMovies2023 = async () => {
   try {
@@ -89,6 +109,3 @@ export const getMovies2023 = async () => {
     return [];
   }
 };
-
-
-
