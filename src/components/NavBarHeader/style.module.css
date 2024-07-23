@@ -1,12 +1,22 @@
 .navbarheader {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    flex-shrink: 0;
   }
   
   .navList {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 70px;
+    font-family: 'Moulpali', sans-serif;
+    color: #FFF;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.6px;
   }
   
   .navLink {
