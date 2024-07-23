@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Rochester&family=Montserrat:wght@400;700&display=swap');
+
+.pageContainer {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.pageTitle {
+  font-family: 'Rochester', cursive;
+  font-size: 3rem;
+  margin: 25px;
+  color: #fff;
+}
+
+.moviesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Augmenté la largeur minimale */
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.movieCard {
+  background-color: #1e1e1e; /* Couleur de fond des cartes */
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  transition: transform 0.2s;
+}
+
+.movieCard:hover {
+  transform: scale(1.05);
+}
+
+.movieImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.movieDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  size: 1.5em;
+  padding: 10px;
+}
+
+.movieTitle {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.movieOverview {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin: 10px 0;
+}
+
+.movieRating {
+  font-size: 1rem;
+  color: #f39c12; /* Couleur pour la note */
+  margin: 10px 0;
+}
+
+.detailsLink {
+  font-size: 1rem;
+  color: #3498db; /* Couleur pour le lien de détails */
+  margin: 10px 0;
+  text-decoration: none;
+}
+
+.detailsLink:hover {
+  text-decoration: underline;
+}
+
+/* Classes pour l'état de chargement et d'erreur */
+.loading, .error {
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.error {
+  color: #ff0000;
+}
+
+/* Media Query pour les petits écrans */
+@media (max-width: 800px) {
+  .moviesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,192 @@
+@font-face {
+    font-family: 'Moulpali';
+    src: url('../../assets/Moulpali/Moulpali-Regular.ttf');
+  }
+  
+  
+  .carouselContainer {
+    text-align: left;
+    font-family: 'Moulpali';
+    color: #fff;
+    
+  }
+  
+  .carouselTitle {
+    font-size: 30px; /* Exemple de taille de police, à ajuster selon vos besoins */
+    color:#fff; /* Exemple de couleur, à ajuster selon vos besoins */
+    margin-left: 150px; /* Exemple de marge inférieure, à ajuster selon vos besoins */
+  }
+  
+  .carouselWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .carousel {
+    display: flex;
+    overflow: hidden;
+    width: 80%;
+  }
+  
+  .carouselItem {
+    flex: 0 0 20%; /* Show 5 items at a time */
+    margin: 0 0;
+    position: relative;
+    transition: transform 0.5s ease;
+  }
+  
+  .carouselImage {
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px;
+  }
+  
+  .movieDetailsCard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 74%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+    border-radius: 15px;
+    overflow-y: auto; /* Si le contenu est trop long */
+    font-size: 1em; /* Taille du texte */
+    line-height: 1; /* Hauteur de ligne */
+    letter-spacing: 0.01em; /* Espacement entre les lettres */
+  }
+  
+  .movieDetailsCard h2 {
+    font-size: 1.5em; /* Taille du titre */
+    margin-bottom: 10px; /* Espace sous le titre */
+  }
+  
+  .movieDetailsCard p {
+    font-size: 0.7em; /* Taille du texte */
+    margin-bottom: 10px; /* Espace sous chaque paragraphe */
+  }
+  
+  .carouselItem:hover .movieDetailsCard {
+    opacity: 1;
+    visibility: visible;
+    border-radius: 15px;
+  }
+  
+  .detailsLink {
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  
+  .buttonContainer {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    gap: 10px; /* Spacing between buttons */
+    z-index: 20; /* Ensure buttons are above other elements */
+  }
+  
+  
+  .likeButton, .watchlistButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .likeButton img, .watchlistButton img {
+    width: 20px; /* Adjust the size as needed */
+    height: 20px; /* Adjust the size as needed */
+  }
+  
+  
+  .prevButton, .nextButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(0.1);
+  }
+  
+  .prevButton {
+    left: -200px;
+  }
+  
+  .nextButton {
+    right: -200px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1200px) {
+    .carouselItem {
+      flex: 0 0 25%; /* Show 4 items at a time on medium screens */
+    }
+  
+    .movieDetailsCard {
+      width: 80%; /* Adjust width for medium screens */
+    }
+  
+    .prevButton, .nextButton {
+      left: -150px;
+      right: -150px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .carouselItem {
+      flex: 0 0 33.33%; /* Show 3 items at a time on smaller screens */
+    }
+  
+    .movieDetailsCard {
+      width: 85%; /* Adjust width for smaller screens */
+    }
+  
+    .prevButton, .nextButton {
+      left: -100px;
+      right: -100px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .carouselItem {
+      flex: 0 0 50%; /* Show 2 items at a time on mobile screens */
+    }
+  
+    .movieDetailsCard {
+      width: 90%; /* Adjust width for mobile screens */
+    }
+  
+    .prevButton, .nextButton {
+      left: -50px;
+      right: -50px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .carouselItem {
+      flex: 0 0 100%; /* Show 1 item at a time on very small screens */
+    }
+  
+    .movieDetailsCard {
+      width: 95%; /* Adjust width for very small screens */
+    }
+  
+    .prevButton, .nextButton {
+      left: -30px;
+      right: -30px;
+    }
+  }

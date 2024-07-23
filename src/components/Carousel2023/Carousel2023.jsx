@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getLatestMovies } from '../../API/note-api';
-import { Link } from 'react-router-dom';
-import styles from './style.module.css';
+import { getMovies2023 } from '../../API/note-api';
+import styles from '../Carousel2023/style.module.css';
 
 // Importing custom arrow assets
 import prevArrow from '../../assets/left-chevron_dore.png';
@@ -13,38 +12,30 @@ import likeFilled from '../../assets/like_dore_full.png';
 import watchlistEmpty from '../../assets/enregistrer_dore.png';
 import watchlistFilled from '../../assets/enregistrer_dore_full.png';
 
-const PetitCarousel = () => {
+const Carousel2023 = () => {
   const [movies, setMovies] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [favorites, setFavorites] = useState([]);
-  const [watchlist, setWatchlist] = useState([]);
+  const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
+  const [watchlist, setWatchlist] = useState(JSON.parse(localStorage.getItem('watchlist')) || []);
 
   useEffect(() => {
-    fetchLatestMovies();
-    loadFavoritesFromLocalStorage();
-    loadWatchlistFromLocalStorage();
+    fetchMovies2023();
   }, []);
 
-  const fetchLatestMovies = async () => {
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
+
+  useEffect(() => {
+    localStorage.setItem('watchlist', JSON.stringify(watchlist));
+  }, [watchlist]);
+
+  const fetchMovies2023 = async () => {
     try {
-      const latestMovies = await getLatestMovies();
-      setMovies(latestMovies);
+      const movies2023 = await getMovies2023();
+      setMovies(movies2023);
     } catch (error) {
       console.error('Error fetching movies:', error);
-    }
-  };
-
-  const loadFavoritesFromLocalStorage = () => {
-    const storedFavorites = localStorage.getItem('favorites');
-    if (storedFavorites) {
-      setFavorites(JSON.parse(storedFavorites));
-    }
-  };
-
-  const loadWatchlistFromLocalStorage = () => {
-    const storedWatchlist = localStorage.getItem('watchlist');
-    if (storedWatchlist) {
-      setWatchlist(JSON.parse(storedWatchlist));
     }
   };
 
@@ -58,14 +49,11 @@ const PetitCarousel = () => {
 
   const handleLikeClick = (movie) => {
     setFavorites((prevFavorites) => {
-      let newFavorites;
       if (prevFavorites.includes(movie.id)) {
-        newFavorites = prevFavorites.filter(id => id !== movie.id);
+        return prevFavorites.filter(id => id !== movie.id);
       } else {
-        newFavorites = [...prevFavorites, movie.id];
+        return [...prevFavorites, movie.id];
       }
-      localStorage.setItem('favorites', JSON.stringify(newFavorites));
-      return newFavorites;
     });
   };
 
@@ -73,14 +61,11 @@ const PetitCarousel = () => {
 
   const handleWatchlistClick = (movie) => {
     setWatchlist((prevWatchlist) => {
-      let newWatchlist;
       if (prevWatchlist.includes(movie.id)) {
-        newWatchlist = prevWatchlist.filter(id => id !== movie.id);
+        return prevWatchlist.filter(id => id !== movie.id);
       } else {
-        newWatchlist = [...prevWatchlist, movie.id];
+        return [...prevWatchlist, movie.id];
       }
-      localStorage.setItem('watchlist', JSON.stringify(newWatchlist));
-      return newWatchlist;
     });
   };
 
@@ -97,7 +82,7 @@ const PetitCarousel = () => {
 
   return (
     <div className={styles.carouselContainer}>
-      <h2 className={styles.carouselTitle}>Derniers films mis en ligne</h2>
+      <h2 className={styles.carouselTitle}>Films de 2023</h2>
       <div className={styles.carouselWrapper}>
         <button className={styles.prevButton} onClick={handlePrevClick}>
           <img src={prevArrow} alt="Previous" />
@@ -114,9 +99,9 @@ const PetitCarousel = () => {
                 <h3>{movie.title}</h3>
                 <p>{truncateText(movie.overview, 80)}</p>
                 <p>Note: {movie.vote_average}</p>
-                <Link to={`/movie-detail-page/${movie.id}`} className={styles.detailsLink}>
+                <a href={`/movie-detail-page/${movie.id}`} className={styles.detailsLink}>
                   Voir les détails
-                </Link>
+                </a>
                 <div className={styles.buttonContainer}>
                   <button className={styles.likeButton} onClick={() => handleLikeClick(movie)}>
                     <img 
@@ -143,6 +128,5 @@ const PetitCarousel = () => {
   );
 };
 
-export default PetitCarousel;
-
+export default Carousel2023;
 
